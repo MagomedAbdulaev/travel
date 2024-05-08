@@ -1,0 +1,134 @@
+.blog_detail{
+    position: relative;
+    background-color: #EAEAEA;
+    padding: calc(min(200px, 120px + (200 - 120) * ((100vw - 320px) / (1920 - 320)))) 20px 110px 20px;
+}
+
+.blog_detail__content{
+    position: relative;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.blog_detail .modal{
+    position: absolute;
+    right: 0;
+    top: -30px;
+    box-shadow: 0 17px 24px 0 #00000040;
+    padding: calc(min(40px, 20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)))) calc(min(35px, 15px + (35 - 15) * ((100vw - 320px) / (1920 - 320)))) calc(min(32px, 13px + (32 - 13) * ((100vw - 320px) / (1920 - 320)))) calc(min(50px, 35px + (50 - 35) * ((100vw - 320px) / (1920 - 320))));
+    background-color: #D6D2C9;
+}
+
+.blog_detail .modal__author{
+    font-weight: 700;
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    line-height: var(--line-height-text);
+}
+
+.blog_detail .modal__role{
+    margin-top: calc(min(30px, 15px + (30 - 15) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.blog_detail .modal__role,
+.blog_detail .modal__experience{
+    font-size: calc(min(18px, 14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))));
+    line-height: calc(min(30px, 14px + (30 - 14) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.blog_detail .modal__info{
+    margin-top: calc(min(60px, 30px + (60 - 30) * ((100vw - 320px) / (1920 - 320))));
+    display: flex;
+    gap: 25px;
+}
+
+.blog_detail .modal .date{
+    font-size: calc(min(15px, 12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.blog_detail .modal .date__value{
+    margin-top: 5px;
+}
+
+.blog_detail .modal .social{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.blog_detail .modal .social__image{
+    width: 45px;
+    height: 36px;
+    object-fit: none;
+    object-position: -19px -8px;
+}
+
+.blog_detail .modal .telegram_icon{
+    object-position: -19px -2px;
+}
+
+.blog_detail__title{
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    color: var(--green-color);
+    font-size: calc(min(100px, 30px + (100 - 30) * ((100vw - 320px) / (1920 - 320))));
+    line-height: calc(min(45px, 20px + (45 - 20) * ((100vw - 320px) / (1920 - 320))));
+    max-width: calc(min(700px, 200px + (700 - 200) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.blog_detail__image{
+    margin-top: calc(min(80px, 30px + (80 - 30) * ((100vw - 320px) / (1920 - 320))));
+    width: 100%;
+}
+
+.blog_detail__description{
+    margin-top: calc(min(80px, 30px + (80 - 30) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.blog_detail__description p{
+    font-size: calc(min(17px, 12px + (17 - 12) * ((100vw - 320px) / (1920 - 320))));
+    line-height: var(--line-height-text);
+    margin: 40px 0;
+}
+
+.blog_detail__description img{
+    width: 100%;
+    height: 100%;
+}
+
+.blog_detail__links{
+    display: flex;
+    gap: calc(min(40px, 20px + (40 - 20) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.blog_detail .blog_link{
+    font-family: 'Nevduplenysh', sans-serif;
+    font-size: calc(min(28px, 14px + (28 - 14) * ((100vw - 320px) / (1920 - 320))));
+    background-color: #4A6118;
+    box-shadow: 0 17px 24px 0 #00000040;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    width: calc(min(280px, 140px + (280 - 140) * ((100vw - 320px) / (1920 - 320))));
+    padding: calc(min(17px, 12px + (17 - 12) * ((100vw - 320px) / (1920 - 320)))) 5px calc(min(12px, 8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))) 5px;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 786px) {
+    .blog_detail .modal__info{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 580px) {
+    .blog_detail{
+        padding: 350px 20px 110px 20px;
+    }
+
+    .blog_detail .modal{
+        top: -254px;
+        right: unset;
+        left: 50%;
+        translate: -50% 0;
+        padding: calc(min(40px, 20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)))) calc(min(35px, 15px + (35 - 15) * ((100vw - 320px) / (1920 - 320)))) calc(min(32px, 13px + (32 - 13) * ((100vw - 320px) / (1920 - 320)))) calc(min(50px, 35px + (50 - 35) * ((100vw - 320px) / (1920 - 320))));
+    }
+}

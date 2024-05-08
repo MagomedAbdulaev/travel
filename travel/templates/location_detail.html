@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load math_tags %}
+
+{% block content %}
+<div class="container" style="background-image: url('{{ location.image.url }}')">
+    <div class="container__content">
+        <h1 class="container__title size-title">{{ location.name }}</h1>
+        <p class="container__description">Наша библиотека точек интереса.</p>
+        <a href="{% url 'travel_site:go_group' %}" class="search_group">искать группу</a>
+    </div>
+</div>
+<div class="location">
+    <div class="location__content">
+        <aside class="content__left">
+            <div class="left__block">
+                <h2 class="left__title size-title">{{ location.name }}</h2>
+                <div class="left__description content__description">{% autoescape off %}{{ location.left_description }}{% endautoescape %}</div>
+            </div>
+            <img src="{{ location.left_image.url }}" alt="{{ location.name }}" class="left__image">
+        </aside>
+        <aside class="content__right">
+            <div class="right__block">
+                <h2 class="right__title">“Стикер с цитатой или вертикальное видео-reals. ”</h2>
+                <img src="{{ location.right_image.url }}" alt="{{ location.name }}" class="right__image">
+            </div>
+            <div class="right__description content__description">{% autoescape off %}{{ location.right_description }}{% endautoescape %}</div>
+        </aside>
+    </div>
+</div>
+<div class="nearby">
+    <img src="{% static 'images/spiral2.webp' %}" alt="Узор" class="spiral__image1">
+    <img src="{% static 'images/spiral4.webp' %}" alt="Узор" class="spiral__image2">
+    <div class="nearby__content">
+        <h2 class="nearby__title size-title">А вы знаете что рядом есть...</h2>
+        <ul class="content__list">
+            {% for location_nearby in locations %}
+                <a href="{{ location_nearby.get_absolute_url }}" class="list__item">{{ location_nearby.name }}</a>
+            {% endfor %}
+        </ul>
+    </div>
+    <img src="{% static 'images/beard.webp' %}" alt="Борода" class="beard__image">
+    <img src="{% static 'images/goat.webp' %}" alt="Козел" class="goat__image">
+    <img src="{% static 'images/spiral3.webp' %}" alt="Узор" class="spiral__image3">
+    <div class="cloud">
+        <img src="{% static 'images/cloud_dialog.webp' %}" alt="Окно диалога" class="cloud__image">
+        <h3 class="cloud__title">А я знаю!</h3>
+    </div>
+</div>
+<div class="events">
+    <div class="events__container">
+        <article class="events__article">
+            <h2 class="article__title">Ближайшие события</h2>
+            <a href="{% url 'travel_site:go_group' %}" class="article__calendar">полный календарь</a>
+        </article>
+        <div class="events__content">
+        {% if tours.current %}
+            <div class="content__current content__block">
+
+                    <ul class="block__list">
+                        <h2 class="list__title">{{ current_month_name.0 }}</h2>
+                        {% for tour in tours.current %}
+                            <a href="{{ tour.get_absolute_url }}" class="list__item">
+                                <h2 class="item__date">
+                                {% with tour.tour_day.all|length|add:tour.start_date.day as end_date %}
+
+                                    {{ tour.start_date.day }}
+                                    -
+                                    {% if end_date > current_month_name.1 %}
+                                        {% if end_date|get_subtract:current_month_name.1 < 10 %}
+                                            0{{ end_date|get_subtract:current_month_name.1 }}
+                                        {% else %}
+                                            {{ end_date|get_subtract:current_month_name.1 }}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if end_date < 10 %}
+                                            0{{ end_date }}
+                                        {% else %}
+                                            {{ end_date }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endwith %}
+                                </h2>
+                                <div class="item__tour">
+                                    <h3 class="tour__name">{{ tour.name }}</h3>
+                                    <p class="tour__description">{{ tour.short_description }}</p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+        {% endif %}
+        {% if tours.next %}
+            <div class="content__next content__block">
+                <ul class="block__list">
+                    <h2 class="list__title">{{ next_month_name.0 }}</h2>
+                    {% for tour in tours.next %}
+                        <a href="{{ tour.get_absolute_url }}" class="list__item">
+                            <h2 class="item__date">
+                            {% with tour.tour_day.all|length|add:tour.start_date.day as end_date %}
+
+                                {% if tour.start_date.day < 10 %}
+                                    0{{ tour.start_date.day }}
+                                {% else %}
+                                    {{ tour.start_date.day }}
+                                {% endif %}
+                                -
+                                {% if end_date > next_month_name.1 %}
+                                    {% if end_date|get_subtract:next_month_name.1 < 10 %}
+                                        0{{ end_date|get_subtract:next_month_name.1 }}
+                                    {% else %}
+                                        {{ end_date|get_subtract:next_month_name.1 }}
+                                    {% endif %}
+                                {% else %}
+                                    {% if end_date < 10 %}
+                                        0{{ end_date }}
+                                    {% else %}
+                                        {{ end_date }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endwith %}
+                            </h2>
+                            <div class="item__tour">
+                                <h3 class="tour__name">{{ tour.name }}</h3>
+                                <p class="tour__description">{{ tour.short_description }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        </div>
+        <div class="begin">
+            <img src="{% static 'images/goat_icon.png' %}" alt="Козлик" class="begin__image">
+            <div id='scrollToTop' class="begin__button">к началу</div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

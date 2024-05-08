@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if email_active %}
+        <h1 class="email_activate__title">Почта подтверждена!</h1>
+        <a href="{% url 'travel_site:home' %}" class="home_link">Перейти на главную</a>
+    {% else %}
+        <h1 class="email_activate__title">Время ссылки истекло!</h1>
+    {% endif %}
+{% endblock %}

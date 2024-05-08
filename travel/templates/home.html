@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main_background">
+        <div class="main_background__content">
+            <h1 class="main_background__title size-title">
+                Дагестан: <br>
+                влюблён-<br>
+                ные в горы</h1>
+            <div class="description">
+                <h3 class="description__title">Не представляете, что может быть прекрасней гор? Значит вы попали по адресу!</h3>
+                <p class="description__text">
+                    Выберите один из готовых туров или создайте своё уникальное путешествие с помощью интерактивной карты.
+                    Просто отмечайте места и отели, которые хотите посетить, и сервис автоматически составит идеальный маршрут.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="where_background">
+        <div class="where_background__text">
+            <div class="text__content">
+                водопады
+                <span class="text__mark">горы</span>
+                каньоны
+                <span class="text__mark">каспийское море</span>
+                отары овечек
+                <span class="text__mark">бескрайнее небо</span>
+                бирюза озёр
+                <span class="text__mark">древние деревушки</span>
+                коты
+                <span class="text__mark">скальные рисунки</span>
+                горные орлы
+                <span class="text__mark">пушистые облака</span>
+                лошади
+                <span class="text__mark">пятнистые оление</span>
+            </div>
+        </div>
+        <div class="where_background__container">
+            <div class="where_background__content">
+                <h2 class="where_background__title size-title">Куда <br> съездить?</h2>
+                <div class="where_background__description">
+                    <p class="description__item">Дагестан богат на природные, этнические и исторические достопримечательности. </p>
+                    <p class="description__item">Подняться на горный пик, искупаться в горном озере или увидеть самый глубокий в Европе Сулакский каньон? </p>
+                    <p class="description__item">Подбери себе активность по вкусу.</p>
+                </div>
+            </div>
+            <a href="{% url 'travel_site:where_to_go' %}" class="where_background__link">посмотреть всё</a>
+        </div>
+    </div>
+    <div class="journey_background">
+        <div class="journey_background__content">
+            <img src="{% static 'images/goats.webp' %}" alt="Козлы" class="goats">
+            <div class="group">
+                <h3 class="group__title">С группой ТУРистов!</h3>
+                <p class="group__description">
+                    Для тех, кто предпочитает путешествовать в компании.
+                    Подберите подходящую вам поездку и отправляйтесь в Путь.
+                </p>
+            </div>
+        </div>
+        <div class="journey_background__container">
+            <h2 class="journey_background__title size-title">
+                <span class="title__item">В путешествие</span>
+                <span class="title__item"> по Дагестану...</span>
+            </h2>
+            <a href="{% url 'travel_site:go_group' %}" class="journey_background__search">искать группу</a>
+        </div>
+    </div>
+    <div class="feedbacks" id="feedbacks">
+        <div class="feedbacks__container">
+            <h2 class="feedbacks__title size-title">Отзывы</h2>
+            <div class="slider single-item" id="slider-feedback">
+                {% for feed in feedbacks %}
+                    <div class="slide">
+                        <p class="slide__description">{{ feed.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <h2 class="wavy_text"><img src="{% static 'images/pattern.webp' %}" alt="Узор" class="image_text"></h2>
+    </div>
+    <div class="rental">
+        <h2 class="rental__title size-title">Прокат снаряжения</h2>
+        <div class="rental__content">
+            <div class="content__item" ><img src="{% static 'images/clothes.webp' %}" alt="Одежда" class="item__image"></div>
+            <div class="content__description">
+                <p class="text">
+                    Если у Вас нет необходимого снаряжения, мы готовы его предоставить!
+                    Забронируйте полноценные паки для путешествия или частичные позиции.
+                </p>
+                <a href="{% url 'travel_site:rental' %}" class="description__link">Забронировать</a>
+            </div>
+            <div class="content__item"><img src="{% static 'images/gear.webp' %}" alt="Снаряжение" class="item__image"></div>
+        </div>
+        <img src="{% static 'images/traces.webp' %}" alt="Следы" class="traces__image">
+    </div>
+    <div class="questions" id="faq">
+        <h2 class="questions__title size-title">Облако вопросов</h2>
+        <div class="questions__description questions__description_long">
+            Что взять в поход? К каким неожиданностям необходимо быть готовым?
+            Какая погода в горах по сезонам? Все самые частые вопросы и ответы на них.
+        </div>
+        <div class="questions__description questions__description_short">
+            Частые вопросы и ответы на них.
+        </div>
+        <ul class="questions__list">
+            {% for question in questions %}
+                <li class="list__item list__item_question" data-question-id="{{ question.id }}">{{ question.name }} <div class="question_close"></div></li>
+            {% endfor %}
+            <li class="list__item all">Развернуть все</li>
+        </ul>
+        <img src="{% static 'images/stones.webp' %}" alt="Камни" class="stones__image">
+        <img src="{% static 'images/couple.webp' %}" alt="Пара"  class="couple__image">
+        <img src="{% static 'images/spiral.webp' %}" alt="Узор" class="spiral__image1">
+        <img src="{% static 'images/spiral.webp' %}" alt="Узор" class="spiral__image2">
+        <img src="{% static 'images/spiral.webp' %}" alt="Узор" class="spiral__image3">
+        <h3 class="text">
+            <span class="text__item">а</span>
+            <span class="text__item">чего?а</span>
+            <span class="text__item">куда?</span>
+        </h3>
+        <div class="answer">
+            <p class="answer__text">
+
+            </p>
+        </div>
+    </div>
+    <div class="contacts" id="contacts">
+        <div class="contacts__container">
+            <h2 class="contacts__title size-title">Остались вопросы? - Свяжись с нами!</h2>
+            <section class="information">
+                <div class="information__block phone">
+                    <img src="{% static 'images/phone.png' %}" alt="Телефон" class="block__image">
+                    <h3 class="block__title">8 999 999 99 99</h3>
+                </div>
+                <div class="information__block mail">
+                <img src="{% static 'images/mail.png' %}" alt="Почта" class="block__image">
+                <h3 class="block__title"><a href="" class="link">treva@ya.ru</a></h3>
+            </div>
+            </section>
+            <div class="begin">
+                <img src="{% static 'images/goat_icon.png' %}" alt="Козлик" class="begin__image">
+                <div id='scrollToTop' class="begin__button">к началу</div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

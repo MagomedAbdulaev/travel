@@ -1,0 +1,412 @@
+.cart{
+    background-color: #D6D2C9;
+}
+
+.cart_container{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 100px 20px 120px 20px;
+}
+
+.cart__title{
+    color: var(--green-color);
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    font-size: calc(min(190px, 40px + (190 - 40) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.cart .card{
+    margin-top: 20px;
+    width: 100%;
+    transition: opacity 0.25s;
+}
+
+.cart .cart__tours{
+    margin-bottom: 80px;
+}
+
+.cart .card_item{
+    display: flex;
+    justify-content: space-between;
+    gap: calc(min(50px, 0px + (50 - 0) * ((100vw - 850px) / (1920 - 850))));
+    margin-top: 10px;
+    box-shadow: 0 17px 24px 0 #00000040;
+    background-color: #F0F0EF;
+    color: #1D252C;
+    height: 120px;
+}
+
+.cart .cart__tours .card_container{
+    display: grid;
+    grid-template-areas: 'month date . . price_ticket . price'
+                         'quantity complexity stay . . . .'
+                         'location . . . sum sum_value sum_value';
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cart .card_product .card_container{
+    padding: 25px;
+    display: grid;
+    grid-template-areas: 'name name . . . price_for_ticked . price'
+                         'positions . . . . sum sum_value sum_value';
+    width: 100%;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+.cart .card_product .name{
+    color: #6F6A5C;
+    font-size: calc(min(20px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+    line-height: var(--line-height-text);
+    font-weight: 700;
+    grid-area: name;
+}
+
+.cart .card_product .positions{
+    align-self: center;
+    font-size: calc(min(15px, 12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))));
+    grid-area: positions;
+}
+
+.cart .card_product .price_for_ticked{
+    grid-area: price_for_ticked;
+    font-size: calc(min(15px, 12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.cart .card_product .price_tour{
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    grid-area: price;
+}
+
+.cart .card_product .sum{
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    align-self: center;
+    grid-area: sum;
+}
+
+.cart .card_product .sum_value{
+    font-weight: 700;
+    font-size: calc(min(45px, 24px + (45 - 24) * ((100vw - 320px) / (1920 - 320))));
+    justify-self: end;
+    grid-area: sum_value;
+}
+
+.cart .card__tour_item{
+    color: #fff;
+    background-color: #1D252C;
+    height: 170px;
+}
+
+.cart .card_item .include__buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+    height: inherit;
+}
+
+.cart .card_item .include__buttons .plus,
+.cart .card_item .include__buttons .minus{
+    padding: calc(min(20px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.cart .card__tour_item .include__buttons .plus,
+.cart .card__tour_item .include__buttons .minus{
+    padding: calc(min(28px, 18px + (28 - 18) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.cart .card_item .stay{
+    display: flex;
+    gap: 5px;
+    grid-area: stay;
+}
+
+.cart .card__delete{
+    width: 60px;
+    margin-left: auto;
+    font-size: 15px;
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+
+.cart .card__tour_item .tour_item__month{
+    background-color: var(--green-color);
+    color: #fff;
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+    text-align: center;
+    padding: calc(min(24px, 15px + (24 - 15) * ((100vw - 320px) / (1920 - 320)))) 4px;
+    width: calc(min(200px, 120px + (200 - 120) * ((100vw - 320px) / (1920 - 320))));
+    grid-area: month;
+    align-self: start;
+}
+
+.cart .card__tour_item .date{
+    color: #fff;
+    font-size: calc(min(55px, 26px + (55 - 26) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+    grid-area: date;
+    padding-top: 5px;
+}
+
+.cart .card__tour_item .price_for_ticked{
+    grid-area: price_ticket;
+    align-self: center;
+}
+
+.cart .card__tour_item .price_tour{
+    grid-area: price;
+    align-self: center;
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.cart .card__tour_item .quantity_people{
+    grid-area: quantity;
+    padding-left: 30px;
+}
+
+.cart .card__tour_item .complexity{
+    grid-area: complexity;
+}
+
+.cart .card__tour_item .quantity_people,
+.cart .card__tour_item .price_for_ticked,
+.cart .card__tour_item .complexity,
+.cart .card__tour_item .stay{
+    font-size: calc(min(15px, 12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.cart .card__tour_item .sum_value{
+    grid-area: sum_value;
+}
+
+.cart .card__tour_item .quantity_people,
+.cart .card__tour_item .sum_value{
+    font-weight: 700;
+}
+
+.cart .card__tour_item .tour_location_name{
+    font-weight: 700;
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    grid-area: location;
+    padding-left: calc(min(25px, 16px + (25 - 16) * ((100vw - 320px) / (1920 - 320))));
+    padding-top: 8px;
+}
+
+.cart .card__tour_item .sum{
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    grid-area: sum;
+    align-self: center;
+}
+
+.cart .card__tour_item .sum_value{
+    font-size: calc(min(45px, 20px + (45 - 20) * ((100vw - 320px) / (1920 - 320))));
+    justify-self: end;
+}
+
+.cart .line{
+    margin: 80px 0 50px;
+    border-top: 1px solid #00000080
+}
+
+.cart .total_info__article{
+    max-width: 635px;
+    margin-left: auto;
+    padding-right: calc(min(100px, 0px + (100 - 0) * ((100vw - 320px) / (1920 - 320))));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart .common_sum{
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    margin-top: 4px;
+}
+
+.cart .common_sum_value{
+    color: #1D252C;
+    font-size: calc(min(55px, 24px + (55 - 24) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+}
+
+.total_info_form .form_grid{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 70px;
+}
+
+.cart .total_info_form .form_grid::after{
+    content: 'Обязательно к заполнению *';
+    font-size: calc(min(15px, 12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))));
+    font-style: italic;
+    margin-top: 30px;
+}
+
+.total_info_form .submit_button{
+    cursor: pointer;
+    display: block;
+    background-color: var(--green-color);
+    color: #fff;
+    font-family: "Nevduplenysh", sans-serif;
+    font-size: calc(min(28px, 16px + (28 - 16) * ((100vw - 320px) / (1920 - 320))));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: calc(min(17px, 12px + (17 - 12) * ((100vw - 320px) / (1920 - 320)))) 5px;
+    width: calc(min(280px, 180px + (280 - 180) * ((100vw - 320px) / (1920 - 320))));
+    margin-left: auto;
+    margin-top: 20px;
+    box-shadow: 0 17px 24px 0 #00000040;
+    border: none;
+}
+
+.total_info_form .form-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: calc(min(16px, 12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)))) 5px calc(min(16px, 12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)))) calc(min(20px, 10px + (20 - 10) * ((100vw - 320px) / (1920 - 320))));
+    border-top: 1px solid #00000080;
+}
+
+.total_info_form .form-item .form-error{
+    position: absolute;
+    bottom: 0;
+    color: #ff3131;
+    font-size: 14px;
+}
+
+.total_info_form .form-item:nth-child(3),
+.total_info_form .form-item:nth-child(4){
+    border-bottom: 1px solid #00000080;
+}
+
+.total_info_form .form-item label{
+    display: block;
+    width: calc(min(220px, 120px + (220 - 120) * ((100vw - 320px) / (1920 - 320))));
+    font-size: calc(min(20px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+}
+
+.total_info_form .form-item .form-input{
+    background: inherit;
+    border: none;
+    padding: 12px 6px;
+    color: #000;
+    font-size: calc(min(17px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+    width: 60%;
+}
+
+.total_info_form .form-item .form-input::placeholder{
+    font-size: calc(min(17px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+}
+
+@media (max-width: 1048px) {
+
+
+    .total_info_form .form_grid{
+        display: block;
+    }
+
+    .total_info_form .form-item{
+        justify-content: center;
+    }
+
+    .total_info_form .form-item:last-child{
+        border-top: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .cart .card__tour_item{
+        flex-direction: column;
+        height: 100%;
+        width: calc(min(330px, 280px + (330 - 280) * ((100vw - 320px) / (850 - 320))));
+    }
+
+    .cart .cart__tours .card_item .include__buttons{
+        width: 150px;
+        margin: 20px auto 0 auto;
+        flex-direction: row-reverse;
+        gap: 20px;
+    }
+
+    .cart .cart__tours .card_container{
+        grid-template-areas: 'month date'
+         'price_ticket price'
+         'quantity complexity '
+         'location stay'
+         'sum sum_value';
+        justify-content: start;
+        gap: 20px;
+        height: 100%;
+    }
+
+    .cart .card__tour_item .stay{
+        align-self: center;
+        margin-top: 12px;
+    }
+
+    .cart .card__tour_item .quantity_people,
+    .cart .card__tour_item .price_for_ticked,
+    .cart .card__tour_item .sum{
+        padding-left: calc(min(25px, 16px + (25 - 16) * ((100vw - 320px) / (1920 - 320))));
+    }
+
+    .cart .cart__tours .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 570px) {
+    .cart .card_full .card_item,
+    .cart .card_light .card_item,
+    .cart .card_product .card_item{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        margin: 20px auto 0 auto;
+    }
+
+    .cart .card_product .card_container{
+        padding: 10px;
+        grid-template-areas: 'name positions'
+                             'price_for_ticked price'
+                             'sum sum_value';
+        gap: 20px;
+    }
+
+    .cart .card_item .include__buttons{
+        width: 150px;
+        margin: 20px auto 0 auto;
+        flex-direction: row-reverse;
+        gap: 20px;
+    }
+
+    .cart .card_product .sum_value{
+        position: relative;
+        left: -20px;
+    }
+
+    .cart .card_item .include__buttons .plus,
+    .cart .card_item .include__buttons .minus{
+        padding: 18px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .total_info_form .form-item{
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .total_info_form .form-item .form-input{
+        margin-top: 10px;
+        margin-left: -6px;
+        width: 100%;
+    }
+}

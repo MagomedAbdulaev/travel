@@ -1,0 +1,153 @@
+.container{
+    position: relative;
+    background-image: url("../images/where_to_go_background.webp");
+    background-size: cover;
+    height: calc(min(1080px, 571px + (1080 - 571) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.container__content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.container__title{
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    font-size: var(--size-title);
+    line-height: var(--line-height-title);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 17px 24px #00000040;
+    max-width: 634px;
+    margin: 0 auto;
+}
+
+.container__description{
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 4px 25px #000000;
+    font-size: calc(min(20px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+    line-height: var(--line-height-text);
+    text-align: center;
+    margin-top: calc(min(80px, 32px + (80 - 32) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.container__list{
+    margin-top: calc(min(40px, 22px + (40 - 22) * ((100vw - 320px) / (1920 - 320))));
+    width: calc(min(1170px, 220px + (1170 - 220) * ((100vw - 320px) / (1920 - 320))));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: calc(min(40px, 15px + (40 - 15) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.container .list__item,
+.container .objects_all{
+    cursor: pointer;
+    font-family: 'Nevduplenysh', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.1rem;
+    border: 2px solid #fff;
+    padding: calc(min(16px, 8px + (16 - 8) * ((100vw - 320px) / (1920 - 320)))) calc(min(18px, 9px + (18 - 9) * ((100vw - 320px) / (1920 - 320))));
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+.container .objects_all{
+    display: none;
+    box-shadow: 0 17px 24px 0 #00000040;
+    background-color: #000;
+    border: 2px solid #000;
+    width: calc(min(400px, 150px + (400 - 150) * ((100vw - 320px) / (1920 - 320))));
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.locations{
+    background-color: #D6D2C9;
+    padding: calc(min(130px, 50px + (130 - 50) * ((100vw - 320px) / (1920 - 320)))) 20px calc(min(90px, 30px + (90 - 30) * ((100vw - 320px) / (1920 - 320)))) 20px;
+}
+
+.locations__container{
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.locations__content{
+    display: grid;
+    grid-template-columns: repeat(2, calc(min(580px, 300px + (580 - 300) * ((100vw - 700px) / (1920 - 700)))));
+    justify-content: center;
+    column-gap: calc(min(80px, 40px + (80 - 40) * ((100vw - 320px) / (1920 - 320))));
+    row-gap: calc(min(40px, 30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.locations .locations__card{
+    position: relative;
+    text-decoration: none;
+}
+
+.locations .card__image{
+    width: 100%;
+    height: calc(min(280px, 200px + (280 - 200) * ((100vw - 700px) / (1920 - 700))));
+}
+
+.locations .card__title{
+    position: absolute;
+    top: calc(min(90px, 45px + (90 - 45) * ((100vw - 320px) / (1920 - 320))));
+    left: 50%;
+    translate: -50% 0;
+    text-align: center;
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    font-size: calc(min(100px, 50px + (100 - 50) * ((100vw - 320px) / (1920 - 320))));
+    line-height: calc(min(56px, 30px + (56 - 30) * ((100vw - 320px) / (1920 - 320))));
+    color: #fff;
+}
+
+.locations .card__description{
+    color: #000;
+    text-align: center;
+    margin-top: calc(min(40px, 20px + (40 - 20) * ((100vw - 320px) / (1920 - 320))));
+    font-size: 17px;
+    line-height: var(--line-height-text);
+}
+
+.locations .tag_selected{
+    display: none;
+    position: relative;
+    top: -35px;
+    font-family: 'Nevduplenysh', sans-serif;
+    font-size: calc(min(28px, 12px + (28 - 12) * ((100vw - 320px) / (1920 - 320))));
+    letter-spacing: 0.1rem;
+    border: 2px solid #000;
+    padding: calc(min(16px, 8px + (16 - 8) * ((100vw - 320px) / (1920 - 320)))) calc(min(18px, 9px + (18 - 9) * ((100vw - 320px) / (1920 - 320))));
+    text-transform: uppercase;
+    text-align: center;
+    color: #000;
+}
+
+@media (max-width: 1032px) {
+
+    .container .list__item,
+    .container .objects_all{
+        font-size: calc(min(28px, 14px + (28 - 14) * ((100vw - 320px) / (1032 - 320))));
+    }
+
+    .locations .card__description{
+        font-size: calc(min(17px, 12px + (17 - 12) * ((100vw - 320px) / (1920 - 320))))
+    }
+
+}
+
+@media (max-width: 700px) {
+    .locations__content{
+        grid-template-columns: repeat(1, minmax(260px, 580px));
+    }
+
+    .locations .card__image{
+        height: calc(min(280px, 150px + (280 - 150) * ((100vw - 320px) / (700 - 320))));
+    }
+}

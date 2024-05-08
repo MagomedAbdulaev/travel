@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="container__content">
+            <h1 class="container__title size-title">Куда съездить?</h1>
+            <p class="container__description">Наша библиотека точек интереса.</p>
+            <ul class="container__list">
+                {% for tag in tags %}
+                    <li class="list__item" data-tag-id="{{ tag.id }}">{{ tag.name }}</li>
+                {% endfor %}
+            </ul>
+            <p class="objects_all">все объекты</p>
+        </div>
+    </div>
+    <div class="locations">
+        <div class="locations__container">
+            <div class="tag_selected"></div>
+            <div class="locations__content">
+            {% for location in locations %}
+                <a href="{{ location.get_absolute_url }}" class="locations__card" data-location-id="{{ location.tags_set.all.first.id }}">
+                    <img src="{{ location.image.url }}" alt="{{ location.name }}" class="card__image">
+                    <div class="card__title">{{ location.name }}</div>
+                    <p class="card__description">{{ location.short_description }}</p>
+                </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endblock %}

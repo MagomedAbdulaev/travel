@@ -1,0 +1,316 @@
+.rental_background{
+    background-image: url("../images/rental_background.webp");
+    background-size: cover;
+}
+
+.rental_background__content{
+    max-width: 1245px;
+    margin: 0 auto;
+    padding: calc(min(240px, 130px + (240 - 130) * ((100vw - 320px) / (1920 - 320)))) 20px calc(min(450px, 40px + (450 - 40) * ((100vw - 320px) / (1920 - 320)))) 20px;
+    text-align: right;
+    color: #fff;
+}
+
+.rental_background__title{
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    font-size: var(--size-title);
+    line-height: var(--line-height-title);
+    max-width: 650px;
+    margin-left: auto;
+}
+
+.rental_background__description{
+    line-height: var(--line-height-text);
+    font-size: calc(min(17px, 14px + (17 - 14) * ((100vw - 320px) / (1920 - 320))));
+    margin-top: calc(min(80px, 30px + (80 - 30) * ((100vw - 320px) / (1920 - 320))));
+    max-width: 360px;
+    margin-left: auto;
+}
+
+.rental__gear{
+    position: relative;
+    background-color: #D6D2C9;
+    padding: calc(min(100px, 50px + (100 - 50) * ((100vw - 320px) / (1920 - 320)))) 10px;
+}
+
+.gear__container{
+    max-width: 1245px;
+    margin: 0 auto;
+}
+
+.rental__gear .kits__title{
+    position: relative;
+    z-index: 2;
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    color: var(--green-color);
+    font-size: calc(min(100px, 30px + (100 - 30) * ((100vw - 320px) / (1920 - 320))));
+    line-height: calc(min(45px, 22px + (45 - 22) * ((100vw - 320px) / (1920 - 320))));
+    width: calc(min(930px, 230px + (930 - 230) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.rental__gear .kits__content{
+    margin-top: 50px;
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.rental__gear .content__block{
+    position: relative;
+    z-index: 2;
+    background-color: #F0F0EF;
+    box-shadow: 0 17px 24px 0 #00000040;
+    padding: calc(min(30px, 20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)))) calc(min(50px, 30px + (50 - 30) * ((100vw - 320px) / (1920 - 320)))) calc(min(45px, 25px + (45 - 25) * ((100vw - 320px) / (1920 - 320)))) calc(min(50px, 30px + (50 - 50) * ((100vw - 320px) / (1920 - 320))));
+    width: calc(min(612px, 220px + (612 - 220) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.gear__container .block__title{
+    color: #6F6A5C;
+    font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+}
+
+.gear__container .block__description{
+    font-size: calc(min(17px, 12px + (17 - 12) * ((100vw - 320px) / (1920 - 320))));
+    line-height: calc(min(25px, 20px + (25 - 20) * ((100vw - 320px) / (1920 - 320))));
+    color: #6F6A5C;
+    margin-top: 25px;
+    height: calc(min(140px, 130px + (140 - 130) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.gear__kits .cost__title{
+    color: #1D252C;
+    font-size: calc(min(20px, 16px + (20 - 16) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+}
+
+.gear__container .cost__include{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gear__container .cost__value{
+    color: #1D252C;
+    font-size: calc(min(45px, 20px + (45 - 20) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+}
+
+.include__buttons{
+    display: flex;
+    align-self: start;
+    gap: calc(min(25px, 10px + (25 - 10) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.include__buttons .count{
+    align-self: center;
+    font-size: calc(min(30px, 20px + (35 - 20) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.include__buttons .plus,
+.include__buttons .minus{
+    cursor: pointer;
+    position: relative;
+    background-color: var(--green-color);
+    color: #fff;
+    padding: calc(min(24px, 18px + (24 - 18) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.include__buttons .plus .horiz,
+.include__buttons .plus .vert,
+.include__buttons .minus .horiz{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    height: 2px;
+    width: 60%;
+    background-color: #fff;
+    border-radius: 1px;
+}
+
+.include__buttons .plus .vert{
+    rotate: 90deg;
+}
+
+.gear__container .content__block .list_items{
+    margin-top: 60px;
+    list-style: inside;
+    color: #6F6A5C;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gear__container .content__block .list_items .item{
+    font-size: calc(min(17px, 15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.gear__products{
+    margin-top: calc(min(140px, 60px + (140 - 60) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.rental__gear .products__list{
+    margin-top: calc(min(80px, 50px + (80 - 50) * ((100vw - 320px) / (1920 - 320))));
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.rental__gear .list__item{
+    position: relative;
+    z-index: 2;
+    background-color: #F0F0EF;
+    box-shadow: 0 17px 24px 0 #00000040;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.rental__gear .products__list .item__info{
+    padding: 14px 0 13px calc(min(16px, 12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))));
+    width: calc(min(450px, 280px + (450 - 280) * ((100vw - 320px) / (1920 - 320))));
+    display: flex;
+    align-items: center;
+    gap: calc(min(50px, 20px + (50 - 20) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.rental__gear .products__list .info__image{
+    width: 93px;
+    height: 93px;
+}
+
+.rental__gear .products__list .info__title{
+    font-size: calc(min(20px, 16px + (20 - 16) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+    color: #6F6A5C;
+}
+
+.rental__gear .products__list .info__description{
+    color: #6F6A5C;
+    font-size: calc(min(15px, 12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))));
+    margin-top: 10px;
+}
+
+.rental__gear .products__list .price{
+    display: flex;
+    gap: calc(min(180px, 10px + (180 - 10) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.rental__gear .products__list .price__value{
+    color: #1D252C;
+    font-size: calc(min(45px, 20px + (45 - 20) * ((100vw - 320px) / (1920 - 320))));
+    font-weight: 700;
+    width: calc(min(250px, 170px + (250 - 170) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.rental__gear .products__list .price__description{
+    color: #1D252C;
+    align-self: end;
+    font-size: 14px;
+}
+
+.gear__container .products__list .include__buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.gear__container .products__list .include__buttons .plus{
+    margin-top: 2px;
+}
+
+.gear__container .products__list .include__buttons .minus{
+    margin-bottom: 2px;
+}
+
+.gear__container .products__list .include__buttons .plus,
+.gear__container .products__list .include__buttons .minus{
+    padding: 18px;
+    margin-left: -1px;
+}
+
+.rental__gear .patterns{
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 1040px) {
+    .rental_background__title,
+    .rental_background__description{
+        margin-right: auto;
+    }
+
+    .rental_background__content{
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 660px) {
+    .rental__gear .kits__content{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rental__gear .content__block{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .rental__gear .products__list{
+        display: grid;
+        grid-template-columns: 240px 240px;
+        justify-content: center;
+    }
+
+    .rental__gear .list__item{
+        flex-direction: column;
+        align-items: start;
+        padding: 14px 0 13px calc(min(16px, 12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))));
+    }
+
+    .gear__container .products__list .include__buttons{
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .gear__container .products__list .include__buttons .minus{
+        margin-bottom: 0;
+    }
+
+    .include__buttons .plus{
+        margin-top: 0;
+    }
+
+    .rental__gear .products__list .price{
+        flex-direction: column;
+        justify-content: left;
+        gap: 15px;
+    }
+
+    .rental__gear .products__list .price__description{
+        align-self: center;
+    }
+
+    .rental__gear .products__list .price__value{
+        width: unset;
+    }
+
+    .rental__gear .products__list .item__info{
+        width: unset;
+        padding: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .rental__gear .products__list{
+        grid-template-columns: 1fr;
+    }
+}

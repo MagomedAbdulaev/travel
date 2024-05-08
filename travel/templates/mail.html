@@ -1,0 +1,5 @@
+{% autoescape off %}
+    Здравствуйте {{ user.first_name }}
+    Перейдите по ссылке для завершения регистрации на сайте Treva!
+    <p><a href="http://{{ domain }}{% url 'travel_site:activate_account' uidb64=uid token=token %}">Активировать аккаунт</a></p>
+{% endautoescape %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+{% load cache %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'css/where_to_go.css' %}">
+        <link rel="stylesheet" href="{% static 'css/location_detail.css' %}">
+        <link rel="stylesheet" href="{% static 'css/tour_detail.css' %}">
+        <link rel="stylesheet" href="{% static 'css/go_group.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+        <link rel="stylesheet" href="{% static 'css/rental.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+        <meta name="description" content="Дагестан:влюблённые в горы.Не представляете, что может быть прекрасней гор? Значит вы попали по адресу!">
+        <meta name="keywords" content="Дагестан, Туризм, Тур, Горы, Отдых">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<div class="wrap">
+    <div id="preload">
+        <span class="loader"></span>
+        <img src="{% static 'images/logo.svg' %}" alt="Логотип" class="image">
+    </div>
+    {% include 'includes/header.html' %}
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+    {% include 'includes/footer.html' %}
+</div>
+<script>
+    let csrf_token = '{{ csrf_token }}';
+</script>
+<script src="{% static 'js/header.js' %}"></script>
+<script src="{% static 'js/question.js' %}"></script>
+<script src="{% static 'js/where_to_go.js' %}"></script>
+<script src="{% static 'js/blog.js' %}"></script>
+<script src="{% static 'js/cart.js' %}"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+</body>
+</html>
+

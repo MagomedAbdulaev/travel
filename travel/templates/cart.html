@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load math_tags %}
+
+{% block content %}
+    <div class="cart cart_fetch">
+        <div class="cart_container">
+                <h1 class="cart__title size-title">Корзина</h1>
+                <div class="cart__items">
+                    {% if tours %}
+                        <div class="cart__tours">
+                            {% for tour in tours %}
+                                <div class="card card_tour" data-set-id="{{ tour.id }}">
+                                    <div class="card__delete cart_delete" data-set-id="{{ tour.id }}" data-set-name="tours">удалить</div>
+                                    <div class="card_item card__tour_item">
+                                        <div class="card_container">
+                                            <div class="tour_item__month">{{ tour.start_date|date:"F" }}</div>
+                                            <h2 class="date">
+                                                {% with tour.tour_day.all|length|add:tour.start_date.day as end_date %}
+                                                        {% with tour.start_date|date:"t"|add:"0" as count_days_in_month %}
+
+                                                            {% if tour.start_date.day < 10 %}
+                                                                0{{ tour.start_date.day }}
+                                                            {% else %}
+                                                                {{ tour.start_date.day }}
+                                                            {% endif %}
+
+                                                            -
+                                                            {% if end_date > count_days_in_month %}
+                                                                {% if end_date|get_subtract:count_days_in_month < 10 %}
+                                                                    0{{ end_date|get_subtract:count_days_in_month }}
+                                                                {% else %}
+                                                                    {{ end_date|get_subtract:count_days_in_month }}
+                                                                {% endif %}
+                                                            {% else %}
+                                                                {% if end_date < 10 %}
+                                                                    0{{ end_date }}
+                                                                {% else %}
+                                                                    {{ end_date }}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    {% endwith %}
+                                            </h2>
+                                            <p class="price_for_ticked">цена за билет</p>
+                                            <h3 class="price_tour price_item">{{ tour.price }} руб.</h3>
+                                            <p class="quantity_people">{{ tour.quantity }} человек, {{ tour.type_tour }}</p>
+                                            <span class="complexity">Сложность {{ tour.complexity }}</span>
+                                            <div class="stay">
+                                                <h3 class="stay__text">Осталось мест:</h3>
+                                                <div class="stay__count" data-set-id="{{ tour.id }}">{{ tour.available_seats }}</div>
+                                            </div>
+                                            <h2 class="tour_location_name">{{ tour.location.name }}</h2>
+                                            <h3 class="sum">сумма</h3>
+                                            <h2 class="sum_value"></h2>
+                                        </div>
+                                        <div class="include__buttons">
+                                            <div class="plus add_to_cart add_tour links__booking" data-set-id="{{ tour.id }}"><span class="vert add_to_cart add_tour" data-set-id="{{ tour.id }}"></span><span class="horiz add_to_cart add_tour" data-set-id="{{ tour.id }}"></span></div>
+                                            <div class="count" data-set-id="{{ tour.id }}" data-set-name="tour">0</div>
+                                            <div class="minus remove_from_cart remove_tour links__booking" data-set-id="{{ tour.id }}"><span class="horiz remove_from_cart remove_tour" data-set-id="{{ tour.id }}"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if full %}
+                        <div class="card card_full">
+                            <div class="card__delete cart_delete" data-set-id='full' data-set-name="full">удалить</div>
+                            <div class="card_item card_product">
+                                <div class="card_container">
+                                    <p class="name">Прокат снаряжения FULL</p>
+                                    <p class="positions">позиции</p>
+                                    <p class="price_for_ticked">цена за позицию</p>
+                                    <h3 class="price_tour price_item">5000 руб.</h3>
+                                    <h3 class="sum">сумма</h3>
+                                    <h2 class="sum_value"></h2>
+                                </div>
+                                <div class="include__buttons">
+                                    <div class="plus add_to_cart" data-set-id="Full"><span class="vert add_to_cart" data-set-id="Full"></span><span class="horiz add_to_cart" data-set-id="Full"></span></div>
+                                    <div class="count count_full">0</div>
+                                    <div class="minus remove_from_cart" data-set-id="Full"><span class="horiz remove_from_cart" data-set-id="Full"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if light %}
+                        <div class="card card_light">
+                            <div class="card__delete cart_delete" data-set-id="light" data-set-name="light">удалить</div>
+                            <div class="card_item card_product">
+                                <div class="card_container">
+                                    <p class="name">Прокат снаряжения LIGHT</p>
+                                    <p class="positions">позиции</p>
+                                    <p class="price_for_ticked">цена за позицию</p>
+                                    <h3 class="price_tour price_item">3000 руб.</h3>
+                                    <h3 class="sum">сумма</h3>
+                                    <h2 class="sum_value"></h2>
+                                </div>
+                                <div class="include__buttons">
+                                    <div class="plus add_to_cart" data-set-id="Light"><span class="vert add_to_cart" data-set-id="Light"></span><span class="horiz add_to_cart" data-set-id="Light"></span></div>
+                                    <div class="count count_light">0</div>
+                                    <div class="minus remove_from_cart" data-set-id="Light"><span class="horiz remove_from_cart" data-set-id="Light"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if products %}
+                        <div class="cart__products">
+                            {% for prod in products %}
+                                <div class="card card_product" data-set-id="{{ prod.id }}">
+                                    <div class="card__delete cart_delete" data-set-id="{{ prod.id }}" data-set-name="products">удалить</div>
+                                    <div class="card_item card_product">
+                                        <div class="card_container">
+                                            <p class="name">{{ prod.name }}</p>
+                                            <p class="positions">позиции</p>
+                                            <p class="price_for_ticked">цена за позицию</p>
+                                            <h3 class="price_tour price_item">{{ prod.price }} руб.</h3>
+                                            <h3 class="sum">сумма</h3>
+                                            <h2 class="sum_value"></h2>
+                                        </div>
+                                        <div class="include__buttons">
+                                            <div class="plus add_to_cart" data-set-id="{{ prod.id }}"><span class="vert add_to_cart" data-set-id="{{ prod.id }}"></span><span class="horiz add_to_cart" data-set-id="{{ prod.id }}"></span></div>
+                                            <div class="count" data-set-id="{{ prod.id }}" data-set-name="product">0</div>
+                                            <div class="minus remove_from_cart" data-set-id="{{ prod.id }}"><span class="horiz remove_from_cart" data-set-id="{{ prod.id }}"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="line"></div>
+                <div class="total_info">
+                <article class="total_info__article">
+                    <p class="common_sum">Общая сумма</p>
+                    <h2 class="common_sum_value">0</h2>
+                </article>
+                <div class="total_info_form">
+                    <form action="" method="post" class="form_cart">
+                        {% csrf_token %}
+                        <div class="form_grid">
+                            {% for input in payment_form %}
+                                <div class="form-item {% if user.is_authenticated %}inputs_disabled{% endif %}">
+                                    {{ input.label_tag }}
+                                    {{ input }}
+                                    <div class="form-error">{{ input.errors }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button type="submit" class="submit_button">перейти к оплате</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

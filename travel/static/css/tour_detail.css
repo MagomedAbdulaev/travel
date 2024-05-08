@@ -1,0 +1,240 @@
+.object{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.object_container{
+    padding: calc(min(340px, 160px + (340 - 160) * ((100vw - 458px) / (1920 - 458)))) 20px calc(min(220px, 100px + (220 - 100) * ((100vw - 458px) / (1920 - 458)))) 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.object__content{
+    display: flex;
+    gap: calc(min(180px, 0px + (180 - 0) * ((100vw - 458px) / (1920 - 458))));
+}
+
+.object .title{
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    font-size: var(--size-title);
+    line-height: var(--line-height-title);
+    color: #fff;
+    text-shadow: var(--shadow-text);
+    max-width: 620px;
+}
+
+.object .price{
+    margin-top: 50px;
+    font-family: 'Nevduplenysh', sans-serif;
+    font-size: calc(min(80px, 35px + (80 - 35) * ((100vw - 458px) / (1920 - 458))));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.object .price .rub{
+    font-size: calc(min(50px, 25px + (50 - 25) * ((100vw - 458px) / (1920 - 458))));
+}
+
+.object .object_container .list__card .card__content{
+    height: unset;
+}
+
+.object .list__card .stay{
+    font-family: 'Nevduplenysh', sans-serif;
+    padding:  calc(min(40px, 10px + (40 - 10) * ((100vw - 458px) / (1920 - 458)))) 5px 5px 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.object .list__card .stay__text{
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: 120px;
+    text-align: start;
+    line-height: calc(min(22px, 14px + (22 - 14) * ((100vw - 458px) / (1920 - 458))));
+    text-shadow: var(--shadow-text);
+}
+
+.object .list__card .stay__count{
+    font-size: calc(min(50px, 34px + (50 - 34) * ((100vw - 458px) / (1920 - 458))));
+    align-self: center;
+    text-shadow: var(--shadow-text);
+}
+
+.objects__links{
+    margin-top: 100px;
+    display: flex;
+    gap: 30px;
+}
+
+.objects__links .links__item{
+    cursor: pointer;
+    width: calc(min(470px, 180px + (470 - 180) * ((100vw - 458px) / (1920 - 458))));
+    padding: calc(min(17px, 12px + (17 - 12) * ((100vw - 458px) / (1920 - 458)))) 5px calc(min(12px, 8px + (12 - 8) * ((100vw - 458px) / (1920 - 458)))) 5px;
+    color: #fff;
+    font-size: 28px;
+    font-family: 'Nevduplenysh', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--green-color);
+    box-shadow: 0 17px 24px 0 #00000040;
+    border: none;
+}
+
+.objects__links .links__location{
+    background-color: #000;
+}
+
+.team_tour{
+    position: relative;
+}
+
+.expedition{
+    background-color: #D6D2C9;
+    padding: calc(min(80px, 40px + (80 - 40) * ((100vw - 320px) / (1032 - 320)))) 20px calc(min(100px, 40px + (100 - 40) * ((100vw - 320px) / (1032 - 320)))) 20px;
+}
+
+.expedition .description__title,
+.expedition .schedule__title{
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    font-size: calc(min(100px, 55px + (100 - 55) * ((100vw - 320px) / (1032 - 320))));
+    line-height: calc(min(45px, 25px + (45 - 25) * ((100vw - 320px) / (1032 - 320))));
+    color: var(--green-color);
+}
+
+.expedition .description__text{
+    margin-top: calc(min(60px, 30px + (60 - 30) * ((100vw - 320px) / (1032 - 320))));
+    line-height: var(--line-height-text);
+    font-size: 17px;
+}
+
+.schedule{
+    margin-top: 50px;
+}
+
+.schedule__content{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 400px));
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.schedule .schedule__day{
+    background-color: #fff;
+    padding: 30px 40px 10px 30px;
+    box-shadow: 0 17px 24px 0 #00000040;
+    height: 250px;
+}
+
+.schedule__content .day__number{
+    font-family: 'BebasNeue', sans-serif;
+    line-height: calc(min(35px, 20px + (35 - 20) * ((100vw - 320px) / (1032 - 320))));
+    color: #6F6A5C;
+    font-size: calc(min(50px, 24px + (50 - 24) * ((100vw - 320px) / (1032 - 320))));
+}
+
+.schedule__content .day__description{
+    margin-top: calc(min(30px, 15px + (30 - 15) * ((100vw - 320px) / (1032 - 320))));
+    color: #6F6A5C;
+    font-size: 15px;
+    line-height: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1032 - 320))));
+}
+
+.expedition__container{
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.tour_added_cart{
+    position: fixed;
+    left: calc(min(100px, 10px + (100 - 10) * ((100vw - 320px) / (1032 - 320))));
+    bottom: 100px;
+    z-index: 5;
+    background: #000000BF;
+    border-radius: 6px;
+    padding: calc(min(20px, 15px + (20 - 15) * ((100vw - 320px) / (1920 - 320)))) calc(min(15px, 15px + (15 - 10) * ((100vw - 320px) / (1920 - 320))));
+    display: none;
+    align-items: center;
+    gap: calc(min(40px, 15px + (40 - 15) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.tour_added_cart .text{
+    color: rgb(243, 244, 245);
+    font-size: calc(min(18px, 10px + (18 - 10) * ((100vw - 320px) / (1920 - 320))));
+}
+
+.tour_added_cart .link{
+    padding: calc(min(16px, 12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)))) calc(min(32px, 24px + (32 - 24) * ((100vw - 320px) / (1920 - 320))));
+    color: #fff;
+    background-color: var(--green-color);
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Nevduplenysh', sans-serif;
+    font-size: calc(min(20px, 12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))));
+}
+
+@media (max-width: 1032px) {
+     .team_tour{
+        padding-bottom: calc(min(150px, 100px + (150 - 100) * ((100vw - 320px) / (1032 - 320))));
+    }
+
+    .schedule__content{
+        grid-template-columns: repeat(2, minmax(240px, 400px));
+        gap: 20px;
+    }
+
+    .object .list__card .stay__text{
+        font-size: calc(min(16px, 14px + (16 - 14) * ((100vw - 320px) / (1032 - 320))));
+    }
+
+    .objects__links .links__item{
+        font-size: calc(min(28px, 18px + (28 - 18) * ((100vw - 320px) / (1032 - 320))));
+    }
+
+    .expedition .description__text{
+        font-size: calc(min(17px, 12px + (17 - 12) * ((100vw - 320px) / (1032 - 320))));
+    }
+
+    .schedule__content .day__description{
+        font-size: calc(min(14px, 10px + (14 - 10) * ((100vw - 320px) / (1032 - 320))));
+    }
+}
+
+@media (max-width: 570px) {
+    .schedule__content{
+        grid-template-columns: repeat(1, minmax(250px, 400px));
+        justify-content: center;
+    }
+
+    .schedule .schedule__day{
+        height: 175px;
+    }
+}
+
+@media (max-width: 458px) {
+
+    .object__content{
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .object .content__block{
+        text-align: center;
+    }
+
+    .objects__links{
+        margin-top: 60px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load math_tags %}
+
+{% block content %}
+    <div class="data_user">
+        <div class="data_user__article">
+            <h1 class="data_user__title size-title">Мой профиль</h1>
+            <p class="edit_btn">редактировать данные</p>
+        </div>
+        <div class="total_info_form">
+            <form action="" method="post" class="form_cart">
+                {% csrf_token %}
+                <div class="form_grid">
+                    {% for input in edit_form %}
+                        <div class="form-item inputs_disabled">
+                            {{ input.label_tag }}
+                            {{ input }}
+                            <div class="form-error">{{ input.errors }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="submit_button">сохранить</button>
+            </form>
+        </div>
+
+        {% if tours %}
+            <div class="save_tours">
+                <h2 class="save_tours__title">Сохранённые маршруты и поездки</h2>
+                <div class="save_tours">
+                <div class="incidents">
+                    <ul class="incidents__list">
+                        {% for tour in tours %}
+                            <a href="{{ tour.get_absolute_url }}" class="list__card">
+                            <h3 class="card__month">{{ tour.start_date|date:"F" }}</h3>
+                            <div class="card__content">
+                                <h2 class="date">
+                                    {% with tour.tour_day.all|length|add:tour.start_date.day as end_date %}
+                                        {% with tour.start_date|date:"t"|add:"0" as count_days_in_month %}
+
+                                            {% if tour.start_date.day < 10 %}
+                                                0{{ tour.start_date.day }}
+                                            {% else %}
+                                                {{ tour.start_date.day }}
+                                            {% endif %}
+
+                                            -
+                                            {% if end_date > count_days_in_month %}
+                                                {% if end_date|get_subtract:count_days_in_month < 10 %}
+                                                    0{{ end_date|get_subtract:count_days_in_month }}
+                                                {% else %}
+                                                    {{ end_date|get_subtract:count_days_in_month }}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if end_date < 10 %}
+                                                    0{{ end_date }}
+                                                {% else %}
+                                                    {{ end_date }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endwith %}
+                                    {% endwith %}
+                                </h2>
+                                <p class="quantity_people">{{ tour.quantity }} человек, {{ tour.type_tour }}</p>
+                                <span class="location_name">{{ tour.location.name }}</span>
+                                <span class="complexity">Сложность {{ tour.complexity }}</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load math_tags %}
+
+{% block content %}
+
+    <div class="journey_background journey_background_tour{% if upcoming_tours|length <= 2 %} journey_background_two_items{% endif %}">
+            <div class="journey_background__content">
+                <img src="{% static 'images/goats.webp' %}" alt="Козлы" class="goats">
+                <div class="group">
+                    <h3 class="group__title">
+                        <span class="title__block">с группой</span>
+                        <span>ТУРистов!</span>
+                    </h3>
+                    <p class="group__description">
+                        Для тех, кто предпочитает путешествовать в компании.
+                        Подберите подходящую вам поездку и отправляйтесь в Путь.
+                    </p>
+                </div>
+            </div>
+            <div class="journey_background__container">
+                <h2 class="journey_background__title size-title">
+                    <span class="title__item">В путешествие</span>
+                    <span class="title__item"> по Дагестану</span>
+                </h2>
+            </div>
+            <div class="incidents{% if upcoming_tours|length == 1 %} incidents_single{% endif %}">
+                <h2 class="incidents__title">Ближайшие события</h2>
+                <ul class="incidents__list">
+                    {% for tour in upcoming_tours %}
+                        <a href="{{ tour.get_absolute_url }}" class="list__card">
+                            <h3 class="card__month">{{ tour.start_date|date:"F" }}</h3>
+                            <div class="card__content">
+                                <h2 class="date">
+                                    {% with tour.tour_day.all|length|add:tour.start_date.day as end_date %}
+                                        {% with tour.start_date|date:"t"|add:"0" as count_days_in_month %}
+
+                                            {% if tour.start_date.day < 10 %}
+                                                0{{ tour.start_date.day }}
+                                            {% else %}
+                                                {{ tour.start_date.day }}
+                                            {% endif %}
+
+                                            -
+                                            {% if end_date > count_days_in_month %}
+                                                {% if end_date|get_subtract:count_days_in_month < 10 %}
+                                                    0{{ end_date|get_subtract:count_days_in_month }}
+                                                {% else %}
+                                                    {{ end_date|get_subtract:count_days_in_month }}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if end_date < 10 %}
+                                                    0{{ end_date }}
+                                                {% else %}
+                                                    {{ end_date }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endwith %}
+                                    {% endwith %}
+                                </h2>
+                                <p class="quantity_people">{{ tour.quantity }} человек, {{ tour.type_tour }}</p>
+                                <span class="location_name">{{ tour.location.name }}</span>
+                                <span class="complexity">Сложность {{ tour.complexity }}</span>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    <div class="slider_wrap_tour">
+        <div class="slider_container slider_container_tour">
+            <div class="slider__tour slider single-item" id="slider_tour">
+            {% for month in tours_by_month %}
+                <div class="slide">
+                    <h2 class="slide_month">{{ month }}</h2>
+                    <div class="slide__content">
+                        {% for val in tours_by_month.values %}
+                            {% for tour in val %}
+                                {% if tour.start_date|date:'F' == month %}
+                                    <div class="content__card">
+                                        <div class="card__include" style="background-image: url('{{ tour.location.image.url }}')">
+                                            <h2 class="date">
+                                            <span class="days">
+                                                {% with tour.tour_day.all|length|add:tour.start_date.day as end_date %}
+                                                {% with tour.start_date|date:"t"|add:"0" as count_days_in_month %}
+
+                                                    {% if tour.start_date.day < 10 %}
+                                                        0{{ tour.start_date.day }}
+                                                    {% else %}
+                                                        {{ tour.start_date.day }}
+                                                    {% endif %}
+
+                                                    -
+                                                    {% if end_date > count_days_in_month %}
+                                                        {% if end_date|get_subtract:count_days_in_month < 10 %}
+                                                            0{{ end_date|get_subtract:count_days_in_month }}
+                                                        {% else %}
+                                                            {{ end_date|get_subtract:count_days_in_month }}
+                                                        {% endif %}
+                                                    {% else %}
+                                                        {% if end_date < 10 %}
+                                                            0{{ end_date }}
+                                                        {% else %}
+                                                            {{ end_date }}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            {% endwith %}
+                                            </span>
+                                            <span class="month">
+                                                {% if month|last == 'ь' or month|last == 'й' %}
+                                                    {{ month|slice:"-1" }}я
+                                                {% else %}
+                                                    {{ month|slice:"-1" }}та
+                                                {% endif %}
+                                            </span>
+                                        </h2>
+                                        </div>
+                                        <div class="card__links">
+                                            <a href="{{ tour.location.get_absolute_url }}" class="detail">подробнее</a>
+                                            <a href="{{ tour.get_absolute_url }}" class="booking">Забронировать</a>
+                                        </div>
+                                        <h3 class="name">{{ tour.name }}</h3>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+    <div class="team">
+        <div class="slider_container slider_container_gid">
+            <div class="slider__team slider single-item" id="slider_team">
+                {% for gid in gids %}
+                    <div class="slide">
+                        <div class="slide__left">
+                            <h2 class="slide__title size-title">Наша команда</h2>
+                            <p class="about_gid">О гиде.</p>
+                            <p class="gid__description">{{ gid.description }}</p>
+                        </div>
+                        <div class="slide__right">
+                            <img src="{{ gid.image.url }}" alt="{{ gid.name }}" class="gid__image">
+                            <div class="modal">
+                                <h2 class="name">{{ gid.name }} {{ gid.surname }}</h2>
+                                <h3 class="role">{{ gid.role }},</h3>
+                                <h3 class="experience">{{ gid.experience }}</h3>
+                            </div>
+                            <img src="{% static 'images/scotch.webp' %}" alt="Скотч" class="scotch1__image">
+                            <img src="{% static 'images/scotch2.webp' %}" alt="Скотч" class="scotch2__image">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="connection">
+        <div class="connection__content">
+            <h2 class="content__title">Хочешь стать частью команды? Свяжись с нами!</h2>
+            <a id='to_contacts_group' class="content__link">контакты</a>
+        </div>
+    </div>
+    <div class="carousel">
+        <div class="carousel__article">
+            <h2 class="carousel__title">“Горы — это хорошо. Когда ты здесь, всё плохое остаётся внизу, и на душе становится так легко.”</h2>
+            <h3 class="carousel__author">Комацу Тацудзи</h3>
+        </div>
+        <div class="carousel_slider">
+            <div class="carousel_slider__container">
+                {% for slide in slides %}
+                    <input type="radio" name="slider" id="item-{{ forloop.counter }}" {% if forloop.counter == 1 %} checked {% endif %}>
+                {% endfor %}
+
+                <input type="radio" name="slider" id="item-2">
+                <input type="radio" name="slider" id="item-3">
+              <div class="container__cards">
+                  {% for slide in slides %}
+                      <label class="card" for="item-{{ forloop.counter }}" id="song-{{ forloop.counter }}">
+                        <img src="{{ slide.image.url }}" alt="{{ slide.name }}">
+                      </label>
+                  {% endfor %}
+              </div>
+              <div class="player">
+                <div class="upper-part">
+                  <div class="play-icon">
+                    <svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
+                      <defs/>
+                      <path d="M5 3l14 9-14 9V3z"/>
+                    </svg>
+                  </div>
+                  <div class="info-area" id="test">
+                    <label class="song-info" id="song-info">
+                      <div class="title">Атмосферная музыка</div>
+                      <div class="sub-line">
+                        <div class="subtitle">Атмосферная музыка</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="progress-bar">
+                  <span class="progress"></span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <img src="{% static 'images/art.webp' %}" alt="Баран" class="ram ram1">
+        <img src="{% static 'images/art2.webp' %}" alt="Баран" class="ram ram2">
+        <img src="{% static 'images/art3.webp' %}" alt="Баран" class="ram ram3">
+        <img src="{% static 'images/art3.webp' %}" alt="Баран" class="ram ram4">
+        <div class="begin">
+            <img src="{% static 'images/goat_icon.png' %}" alt="Козлик" class="begin__image">
+            <div id="scrollToTop" class="begin__button">к началу</div>
+        </div>
+    </div>
+
+{% endblock %}

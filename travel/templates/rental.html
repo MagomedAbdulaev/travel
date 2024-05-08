@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="rental_background">
+        <div class="rental_background__content">
+            <h1 class="rental_background__title size-title">Прокат снаряжения</h1>
+            <p class="rental_background__description">
+                Если у Вас нет необходимого снаряжения, мы готовы его предоставить!
+                Забронируйте полноценные паки для путешествия или частичные позиции.
+            </p>
+        </div>
+    </div>
+    <div class="rental__gear">
+        <div class="gear__container">
+            <div class="gear__kits">
+                <h2 class="kits__title">Наши подборки, где уже есть всё необходимое</h2>
+                <div class="kits__content">
+                    <div class="full content__block">
+                        <h3 class="block__title">Прокат снаряжения FULL</h3>
+                        <p class="block__description">
+                            Самый полный набор важных вещей, без необходимости покупать и искать им место для хранения в доме.
+                        </p>
+                        <div class="cost">
+                            <h3 class="cost__title">стоимость аренды</h3>
+                            <div class="cost__include">
+                                <h2 class="cost__value">5.000 руб.</h2>
+                                <div class="include__buttons">
+                                    <div class="plus add_to_cart" data-set-id="Full"><span class="vert add_to_cart" data-set-id="Full"></span><span class="horiz add_to_cart" data-set-id="Full"></span></div>
+                                    <div class="count count_full">0</div>
+                                    <div class="minus remove_from_cart" data-set-id="Full"><span class="horiz remove_from_cart" data-set-id="Full"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list_items">
+                            {% for prod in products %}
+                                <li class="item">{{ prod.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="light content__block">
+                        <h3 class="block__title">Прокат снаряжения LIGHT</h3>
+                        <p class="block__description">
+                            Набор вещей, которые вам обязательно понадобятся, без необходимости покупать и искать им место для хранения в доме.
+                        </p>
+                        <div class="cost">
+                            <h3 class="cost__title">стоимость аренды</h3>
+                            <div class="cost__include">
+                                <h2 class="cost__value">3.000 руб.</h2>
+                                <div class="include__buttons">
+                                    <div class="plus add_to_cart" data-set-id="Light"><span class="vert add_to_cart" data-set-id="Light"></span><span class="horiz add_to_cart" data-set-id="Light"></span></div>
+                                    <div class="count count_light">0</div>
+                                    <div class="minus remove_from_cart" data-set-id="Light"><span class="horiz remove_from_cart" data-set-id="Light"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                         <ul class="list_items">
+                            {% for prod in products %}
+                                {% if prod.light %}
+                                    <li class="item">{{ prod.name }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gear__products">
+                <h2 class="kits__title">Или закажите отдельные позиции</h2>
+                <ul class="products__list">
+                    {% for prod in products %}
+                        <li class="list__item">
+                            <div class="item__info">
+                                <img src="{{ prod.image.url }}" alt="{{ prod.name }}" class="info__image">
+                                <div>
+                                    <h3 class="info__title">{{ prod.name }}</h3>
+                                    <p class="info__description">{{ prod.short_description }}</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                <p class="price__description">цена за позицию</p>
+                                <h2 class="price__value">{{ prod.price }} руб.</h2>
+                            </div>
+                            <div class="include__buttons">
+                                <div class="minus remove_from_cart" data-set-id="{{ prod.id }}"><span class="horiz remove_from_cart" data-set-id="{{ prod.id }}"></span></div>
+                                <div class="count" data-set-id="{{ prod.id }}" data-set-name="product">0</div>
+                                <div class="plus add_to_cart" data-set-id="{{ prod.id }}"><span class="vert add_to_cart" data-set-id="{{ prod.id }}"></span><span class="horiz add_to_cart" data-set-id="{{ prod.id }}"></span></div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <img src="{% static 'images/patterns.webp' %}" alt="Узоры" class="patterns">
+        </div>
+    </div>
+{% endblock %}

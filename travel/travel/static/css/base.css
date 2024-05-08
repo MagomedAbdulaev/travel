@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Nevduplenysh';
+    src: url('../fonts/Nevduplenysh/Nevduplenysh-Regular.woff2') format('woff2'),
+    url('../fonts/Nevduplenysh/Nevduplenysh-Regular.woff') format('woff'),
+    url('../fonts/Nevduplenysh/Nevduplenysh-Regular.otf') format('otf');
+    font-weight: 400;
+	font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'EastSeaDokdoCyrillic';
+    src: url('../fonts/EastSeaDokdoCyrillic/eastseadokdocyrillic.otf') format('otf'),
+    url('../fonts/EastSeaDokdoCyrillic/eastseadokdocyrillic.woff') format('woff');
+    font-weight: 400;
+	font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans/OpenSans-Regular.woff') format('woff'),
+    url('../fonts/OpenSans/OpenSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../fonts/OpenSans/OpenSans-bold.woff') format('woff'),
+    url('../fonts/OpenSans/OpenSans-bold.woff2') format('woff2');
+    font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../fonts/Bebas/bebasneuebold.woff') format('woff'),
+    url('../fonts/Bebas/bebasneuebold.woff2') format('woff2');
+    font-weight: 700;
+	font-style: normal;
+}
+
+
+.wrap{
+    max-width: 1920px;
+    margin: 0 auto;
+    font-family: 'OpenSans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main{
+    flex-grow: 1;
+    background-color: #D6D2C9;
+}
+
+:root{
+    --green-color: #4A6118;
+    --shadow-text: 0 17px 24px 0 #00000040;
+    --size-title: calc(min(200px, 60px + (200 - 60) * ((100vw - 320px) / (1920 - 320))));
+    --line-height-title: calc(min(113px, 34px + (113 - 34) * ((100vw - 320px) / (1920 - 320))));
+    --line-height-text: calc(min(35px, 20px + (35 - 20) * ((100vw - 320px) / (1920 - 320))));
+}
+
+
+.reset{
+    max-width: 1180px;
+    margin: 120px auto;
+}
+
+.reset_password_title,
+.email_activate__title{
+    font-size: var(--size-title);
+    color: var(--green-color);
+    line-height: var(--line-height-title);
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    text-align: center;
+}
+
+.reset .total_info_form .form_grid{
+    margin-top: calc(min(50px, 20px + (50 - 20) * ((100vw - 320px) / (1920 - 320))));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reset .total_info_form .form_reset .form-item{
+    border: none;
+}
+
+.reset .total_info_form .form_reset .form-input{
+    border-bottom: 1px solid #00000080;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.reset .total_info_form .submit_button{
+    margin: 20px auto;
+}
+
+.email_activate__title{
+    margin-top: 120px;
+}
+
+.home_link{
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+    font-size: calc(min(40px, 16px + (40 - 16) * ((100vw - 320px) / (1920 - 320))));
+    color: #000;
+}

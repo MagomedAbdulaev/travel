@@ -1,0 +1,59 @@
+.data_user{
+    max-width: 1170px;
+    margin: 130px auto 0 auto;
+    padding: 0 20px 50px 20px;
+}
+
+.data_user__article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.data_user .data_user__title{
+    font-size: var(--size-title);
+    color: var(--green-color);
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    line-height: var(--line-height-title);
+}
+
+.data_user .edit_btn{
+    cursor: pointer;
+    margin-top: calc(min(25px, 15px + (25 - 15) * ((100vw - 320px) / (1032 - 320))));
+    color: #514936;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.data_user .total_info_form .submit_button{
+    display: none;
+}
+
+.save_tours{
+    margin-top: 80px;
+}
+
+.save_tours__title{
+    color: var(--green-color);
+    font-size: calc(min(100px, 40px + (100 - 40) * ((100vw - 320px) / (1032 - 320))));
+    font-family: 'EastSeaDokdoCyrillic', sans-serif;
+    line-height: var(--line-height-title);
+}
+
+.save_tours .incidents{
+    position: relative;
+}
+
+.save_tours .incidents .incidents__list{
+    gap: calc(min(30px, 15px + (30 - 15) * ((100vw - 555px) / (1920 - 555))));
+    flex-wrap: wrap;
+}
+
+
+@media (max-width: 1032px) {
+    .data_user .edit_btn{
+        font-size: calc(min(20px, 14px + (20 - 14) * ((100vw - 320px) / (1032 - 320))));
+    }
+}

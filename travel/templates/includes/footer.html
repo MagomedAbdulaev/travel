@@ -1,0 +1,17 @@
+{% load static %}
+<footer class="footer">
+    <div class="footer__content">
+        <div class="logo">
+            <a href="{% url 'travel_site:home' %}"><img src="{% static 'images/logo.svg' %}" alt="Логотип" class="image"></a>
+            <p class="copyright">(C) copyright 2023</p>
+        </div>
+        <ul class="footer__navigation">
+            <li class="navigation__item"><a href="{% url 'travel_site:where_to_go' %}" class="item__link">Куда съездить</a></li>
+            <li class="navigation__item"><a href="{% url 'travel_site:go_group' %}" class="item__link">Планирование поездки в группе</a></li>
+            <li class="navigation__item"><a id='footer_to_feedbacks' class="item__link">Отзывы</a></li>
+            <li class="navigation__item"><a href="{% url 'travel_site:rental' %}" class="item__link">Прокат снаряжения</a></li>
+            <li class="navigation__item"><a id='footer_to_faq' class="item__link">FAQК</a></li>
+            <li class="navigation__item"><a id='footer_to_contacts' class="item__link">Контакты</a></li>
+        </ul>
+    </div>
+</footer>

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load math_tags %}
+
+{% block content %}
+    <div class="blog_background">
+        <div class="blog_background__content">
+            <h1 class="blog_background__title size-title">Блог</h1>
+            <p class="blog_background__description">
+                Жизнь полна ярких и чарующих моментов.
+                Читайте наш блог о путешествиях и вдохновляйтесь на создание своих историй!
+            </p>
+        </div>
+    </div>
+    <div class="blogs">
+        <div class="blogs__container">
+            <form id="search_form" action="#search_form" class="blogs__search">
+                <input type="submit" class="loupe" value="">
+                <input type="search" class="search__input" name="search_blog" {% if search_value %} value="{{ search_value }}" {% endif %} placeholder="поиск по ключевому слову - нажмите чтобы начать">
+            </form>
+            <div class="blogs__content">
+                {% for blog_arr in blogs %}
+                    <div class="content__row{% if not forloop.counter|get_divide:2 %} content__row_reverse {% endif %}">
+                    {% for blog in blog_arr %}
+                        <div class="row__card{% if forloop.counter == 1 %} big_card{% elif forloop.counter == 2 %} card_small_1{% else %} card_small_2{% endif %}">
+                            {% if forloop.counter == 1 %}
+                                <img src="{{ blog.image.url }}" alt="{{ blog.name }}" class="card__image">
+                                <a href="{{ blog.get_absolute_url }}" class="card__link">читать</a>
+                                <div class="card__info card_to_card">
+                                    <h3 class="info__title">{{ blog.name }}</h3>
+                                    <p class="info__description">{{ blog.short_description|truncatechars:120 }}</p>
+                                </div>
+                            {% else %}
+                                <div class="left__card">
+                                    <img src="{{ blog.image.url }}" alt="{{ blog.name }}" class="card__image left__image">
+                                    <a href="{{ blog.get_absolute_url }}" class="card__link">читать</a>
+                                </div>
+                                <div class="card__info right__card">
+                                    <h3 class="info__title">{{ blog.name }}</h3>
+                                    <p class="info__description">{{ blog.short_description|truncatechars:120 }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endfor %}
+                {% if blogs|length == 0 %}
+                    <h2 class="nothing">Ничего не найдено</h2>
+                {% endif %}
+            </div>
+            <div class="begin">
+                <img src="{% static 'images/goat_icon.png' %}" alt="Козлик" class="begin__image">
+                <div id="scrollToTop" class="begin__button">к началу</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="blog_detail">
+        <div class="blog_detail__content">
+            <div class="modal">
+                <div class="modal__content">
+                    <h3 class="modal__author">Автор</h3>
+                    <h3 class="modal__author">{{ blog.author }}</h3>
+                    <p class="modal__role">{{ blog.role }}</p>
+                    <p class="modal__experience">{{ blog.experience }}</p>
+                </div>
+                <div class="modal__info">
+                    <div class="date">
+                        <p class="date__title">Дата публикации</p>
+                        <p class="date__value">{{ blog.created_at.isoformat }}</p>
+                    </div>
+                    <div class="social">
+                        <a href=""><img src="{% static 'images/share.svg' %}" alt="Поделиться" class="social__image"></a>
+                        {% if blog.vkontakte %}
+                            <a href="{{ blog.vkontakte }}"><img src="{% static 'images/vk.svg' %}" alt="Вк" class="social__image"></a>
+                        {% endif %}
+                        {% if blog.telegram %}
+                            <a href="{{ blog.telegram }}"><img src="{% static 'images/telegram.svg' %}" alt="Телеграм" class="social__image telegram_icon"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <h1 class="blog_detail__title">{{ blog.name }}</h1>
+            <img src="{{ blog.image.url }}" alt="{{ blog.image }}" class="blog_detail__image">
+            <div class="blog_detail__description">{% autoescape off %} {{ blog.description }} {% endautoescape %}</div>
+            <div class="blog_detail__links">
+                {% if previous_blog %}
+                    <a href="{{ previous_blog }}" class="blog_link">назад</a>
+                {% endif %}
+                {% if next_blog %}
+                    <a href="{{ next_blog }}" class="blog_link">далее</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="begin">
+            <img src="{% static 'images/goat_icon.png' %}" alt="Козлик" class="begin__image">
+            <div id="scrollToTop" class="begin__button">к началу</div>
+        </div>
+
+    </div>
+
+{% endblock %}
